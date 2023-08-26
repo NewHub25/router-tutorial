@@ -1,4 +1,10 @@
-import { createContact, getContacts } from "./contact";
+import { redirect } from "react-router-dom";
+import {
+  createContact,
+  getContacts,
+  updateContact,
+  getContact,
+} from "./contact";
 
 export async function loader() {
   const contacts = await getContacts();
@@ -6,11 +12,20 @@ export async function loader() {
 }
 
 export async function contactLoader({ params }) {
-  const contact = await getContacts(params.contactId);
+  const contact = await getContact(params.contactId);
   return { contact };
 }
 
-export async function action() {
+export async function createAction() {
   const contact = await createContact();
-  return { contact };
+  return redirect(`contacts/${contact.id}/edit`);
+}
+
+export async function editAction({ request, params }) {
+  console.log(request, params);
+  const formData = await request.formData();
+  const updates = Object.fromEntries(formData);
+  console.log(updates);
+  await updateContact(params.contactId, updates);
+  return redirect(`/contacts/${params.contactId}`);
 }

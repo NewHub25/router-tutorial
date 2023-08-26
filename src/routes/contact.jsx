@@ -77,5 +77,6 @@ function Favorite({ contact }) {
         {favorite ? "★" : "☆"}
       </button>
     </Form>
+    
   );
 }

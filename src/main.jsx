@@ -7,9 +7,11 @@ import Root from "./routes/root";
 import Contact from "./routes/contact";
 import {
   loader as rootLoader,
-  action as rootAction,
+  createAction,
   contactLoader,
+  editAction,
 } from "./constants";
+import EditContact from "./routes/edit";
 
 const router = createBrowserRouter([
   {
@@ -17,12 +19,18 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     loader: rootLoader,
-    action: rootAction,
+    action: createAction,
     children: [
       {
         path: "contacts/:contactId",
         element: <Contact />,
         loader: contactLoader,
+      },
+      {
+        path: "contacts/:contactId/edit",
+        element: <EditContact />,
+        loader: contactLoader,
+        action: editAction,
       },
     ],
   },
