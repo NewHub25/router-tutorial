@@ -22,10 +22,8 @@ export async function createAction() {
 }
 
 export async function editAction({ request, params }) {
-  console.log(request, params);
   const formData = await request.formData();
   const updates = Object.fromEntries(formData);
-  console.log(updates);
   await updateContact(params.contactId, updates);
   return redirect(`/contacts/${params.contactId}`);
 }

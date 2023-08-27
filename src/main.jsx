@@ -34,11 +34,10 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // { path: "*", element: <div>Ups, something is wrong</div> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <RouterProvider router={router} />
+  // <React.StrictMode>
+  // </React.StrictMode>
 );
