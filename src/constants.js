@@ -29,3 +29,10 @@ export async function editAction({ request, params }) {
   await updateContact(params.contactId, updates);
   return redirect(`/contacts/${params.contactId}`);
 }
+
+export async function contactAction({ request, params }) {
+  let formData = await request.formData();
+  return updateContact(params.contactId, {
+    favorite: formData.get("favorite") === "true",
+  });
+}

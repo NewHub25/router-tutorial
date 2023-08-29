@@ -9,6 +9,7 @@ import {
   createAction,
   contactLoader,
   editAction,
+  contactAction,
 } from "./constants";
 import EditContact from "./routes/edit";
 import { destroAction } from "./routes/destroy";
@@ -30,7 +31,8 @@ const router = createBrowserRouter([
         path: "contacts/:contactId",
         element: <Contact />,
         loader: contactLoader,
-        errorElement: <div>Oops! There was an error in reading a record.</div>,
+        action: contactAction,
+        errorElement: <div>Oops! There was an error in contact route.</div>,
       },
       {
         path: "contacts/:contactId/edit",
