@@ -38,7 +38,7 @@ export default function Root() {
                 const firstSearch = q === null;
                 submit(event.currentTarget.form, { replace: !firstSearch });
               }}
-              className={searching ? "loading" : ""}
+              className={searching ? "loading-route" : ""}
             />
             <div id="search-spinner" aria-hidden hidden={!searching} />
             <div className="sr-only" aria-live="polite"></div>
@@ -81,7 +81,7 @@ export default function Root() {
         id="detail"
         className={
           navigation.state === "loading" || navigation.state === "submitting"
-            ? "loading"
+            ? "opacity-25"
             : ""
         }
       >

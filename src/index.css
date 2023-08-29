@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
   box-sizing: border-box;
 }
@@ -103,7 +107,7 @@ form[action$="destroy"] button {
 }
 
 #sidebar {
-  width: 22rem;
+  /* width: 30%; */
   background-color: #f7f7f7;
   border-right: solid 1px #e3e3e3;
   display: flex;
@@ -157,7 +161,7 @@ form[action$="destroy"] button {
   position: relative;
 }
 
-#sidebar > div form input[type="search"].loading {
+#sidebar > div form input[type="search"].loading-route {
   background-image: none;
 }
 
@@ -242,10 +246,11 @@ i {
   flex: 1;
   padding: 2rem 4rem;
   width: 100%;
+  background-color: #eee;
 }
 
-#detail.loading {
-  opacity: 0.25;
+#detail.loading-route {
+  /* opacity: 0; */
   transition: opacity 200ms;
   transition-delay: 200ms;
 }
