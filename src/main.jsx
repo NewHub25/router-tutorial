@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
@@ -12,6 +11,8 @@ import {
   editAction,
 } from "./constants";
 import EditContact from "./routes/edit";
+import { destroAction } from "./routes/destroy";
+import Index from "./routes";
 
 const router = createBrowserRouter([
   {
@@ -22,15 +23,26 @@ const router = createBrowserRouter([
     action: createAction,
     children: [
       {
+        index: true,
+        element: <Index />,
+      },
+      {
         path: "contacts/:contactId",
         element: <Contact />,
         loader: contactLoader,
+        errorElement: <div>Oops! There was an error in reading a record.</div>,
       },
       {
         path: "contacts/:contactId/edit",
         element: <EditContact />,
         loader: contactLoader,
         action: editAction,
+        errorElement: <div>Oops! There was an error in editing a record.</div>,
+      },
+      {
+        path: "contacts/:contactId/destroy",
+        action: destroAction,
+        errorElement: <div>Oops! There was an error in delete a record.</div>,
       },
     ],
   },
