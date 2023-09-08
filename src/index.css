@@ -227,11 +227,11 @@ i {
   color: inherit;
   text-decoration: none;
   gap: 1rem;
+  &:hover{
+    background: #ccc;
+  }
 }
 
-#sidebar nav a:hover {
-  background: #e3e3e3;
-}
 
 #sidebar nav a.active {
   background: hsl(224, 98%, 58%);
